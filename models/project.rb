@@ -1,5 +1,5 @@
 def run_sql(sql, params = [])
-    conn = PG.connect(dbname: 'stitch_by_stitch')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'stitch_by_stitch'})
     records = conn.exec_params(sql, params)
     conn.close
     records

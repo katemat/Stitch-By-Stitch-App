@@ -1,7 +1,8 @@
 # dependencies
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'pg' 
+
 
 require_relative 'models/project'
 require_relative 'models/user'
@@ -19,7 +20,9 @@ get '/' do
   })
 end
 
+
 get '/projects/new' do
+  redirect "/login" unless logged_in?
   erb(:'/projects/new')
 end
 
@@ -44,17 +47,20 @@ post '/projects' do
 end
 
 delete '/projects' do
+  redirect "/login" unless logged_in?
   delete_project(params[:id])
   redirect "/"
 end
 
 get '/projects/:id/edit' do
+  redirect "/login" unless logged_in?
   project = find_one_project_by_id(params[:id])
   
   erb(:'/projects/edit', locals: { project: project })
 end
 
 patch '/projects' do
+  redirect "/login" unless logged_in?
   update_project(
     params[:id], 
     params[:title], 
