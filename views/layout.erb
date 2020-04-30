@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stitch by Stitch</title>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href='/stylesheets/main.css'>
+</head>
+<body>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#">Designs</a>
+    <a href="/">Projects</a>
+    <div class="dropdown">
+      <% if logged_in? %>
+      Welcome back, <%= current_user["name"] %>
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Create New</a>
+      <a href="#">My projects</a>
+      <a href="#">Sign out</a>
+  </div>
+</div>
+      
+      <a href="/projects/new">post new project</a>
+      <form action="/logout" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+
+    <% end %>
+    
+    <a href="/login"> <img class="login-icon" src='/stylesheets/login-icon.png'></a>
+  </div>
+  </div>
+
+  
+  <%= yield %>
+
+<script src="/javascripts/application.js"></script>
+</body>
+</html>

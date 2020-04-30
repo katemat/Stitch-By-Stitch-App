@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(243, 240, 245);
+    margin: 0 auto;
+}
+
+.container {
+    width: 90%;
+    margin: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+div img {
+    width:100px;
+    height: 100px;
+}
+
+.zoom {
+    
+    transition: transform .3s; /* Animation */
+    /* width: 200px;
+    height: 200px;
+    margin: 0 auto; */
+  }
+  
+  .zoom:hover {
+    transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+ /* .project-container {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 2fr 1fr;
+    justify-content: center;
+}
+
+.slideshow-area , .edit-area {
+    grid-column-start: span 2; 
+} 
+ */
+ .topnav {
+    overflow: hidden;
+    background-color: rgb(109, 86, 117);
+  }
+  
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 25px;
+}
+  
+.topnav a:hover {
+background-color: rgb(70, 26, 70);
+color: rgb(202, 200, 202);
+}
+
+/* .topnav a.active {
+background-color: rgb(243, 212, 241);
+color: rgb(64, 8, 71);
+} */
+
+.login-icon {
+    
+    width: 50px;
+    height: 50px;
+}
+
+  /* ======= */
+.login-wrapper {
+    width: 400px;
+    height: 300px;
+}
+
+.new-project-wrapper, .update-form-wrapper {
+    width: 800px;
+    height: 550px;
+}
+.login-wrapper, .new-project-wrapper, .update-form-wrapper {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    border: rgb(90, 67, 90);
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px 5px rgb(141, 119, 141);
+    text-align: center;
+    font-size: 1em;
+    margin: 0 auto;
+    color: rgb(70, 26, 70);
+}
+
+  /* .login-form {
+      width: 350px;
+      height: 500px;
+  } */
+.login-wrapper h1, p {
+    margin: auto auto 0 auto;
+}
+.login-form, .new-project-form, .update-form {
+    margin: 10px auto;;
+}
+  .login-form label, .new-project-form label, .update-form label {
+      display: inline-block;
+      width: 70px;
+      text-align: right;
+  }
+  .new-project-form label, .update-form label {
+      width: 180px;
+  }
+
+  .login-form button, .new-project-form button, .update-form button{
+    background: rgb(109, 86, 117);
+    color: #f2f2f2; 
+    font-size: 1.5em;
+    border-radius: 6px;
+  }
+
+  .login-form input, .new-project-form input, textarea, .update-form input{
+      width: 60%;
+      border-radius: 5px;
+  }
+
+  .login-form div, .new-project-form div, .update-form div {
+      margin: 10px auto;
+  }
+
+  label a {
+      color: green;
+      font-weight: bold;
+  }
+
+  .signup-link {
+      margin: 30px auto;
+  }

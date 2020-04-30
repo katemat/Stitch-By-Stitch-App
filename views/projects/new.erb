@@ -1,0 +1,43 @@
+<div class="new-project-wrapper">
+<h1>Create new Project </h1>
+<%# <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>  %>
+<form class="new-project-form" action="/projects" method="post">
+  <div>
+    <label for="">Title</label>
+    <input name="title" type="text">
+  </div>
+  <div>
+    <label for="">Design: </label>
+    <input name="design" type="text">
+  </div>
+  <div>
+      <label for="">Size, WxH, mm: </label>
+      <input name="size" type="text">
+    </div>
+    <div>
+      <label for="">Colors: </label>
+      <input name="colors" type="text">
+    </div>
+    <div>
+      <label for="">Fabric, count: </label>
+      <input name="fabric_count" type="text">
+    </div>
+    <div>
+      <label for="">Started: </label>
+      <input name="start" type="date">
+    </div>
+    <div>
+      <label for="">Finished: </label>
+      <input name="finish" type="date">
+    </div>
+    <div>
+      <label for=""><a href="https://imgbb.com/" target="blank">Get url</a></label>
+      <input name="main_image_url" type="text">
+    </div>
+    <div> 
+      <label for="">Additional Info: </label>
+      <textarea name="details" rows="3" cols="50"></textarea>
+    </div>
+  <button>Submit</button>
+</form>
+<div>

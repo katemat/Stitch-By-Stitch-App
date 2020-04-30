@@ -1,0 +1,36 @@
+<h1><%= project["title"]%></h1>
+<div class="project-container">
+    <div>
+        <img src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
+    </div>
+    <div>
+        <ul>
+            <li>Design: <%=project["design"]%></li>
+            <li>Size, mm: <%=project["size"]%></li>
+            <li>Colors: <%=project["colors"]%></li>
+            <li>Fabric, count: <%=project["fabric_count"]%> </li>
+            <li>Started: <%=project["start"]%></li>
+            <li>Finished: <%=project["finish"]%></li>
+            <li>Additional Info: <%=project["details"]%></li>
+        </ul>
+    </div>
+     
+     
+  
+
+  
+    
+
+    <div class="edit-area">
+        <div class="edit-link">
+        <a href="/projects/<%= project["id"]%>/edit">Edit information</a>
+    </div>
+    <div>
+        <form class="delete-form" action="/projects" method="post">
+            <input type="hidden" name="id" value="<%= project["id"] %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="delete-btn">Delete Post</button>
+        </form>
+    </div>
+    </div>
+</div>
