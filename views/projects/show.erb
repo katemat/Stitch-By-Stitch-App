@@ -1,9 +1,9 @@
-<h1><%= project["title"]%></h1>
-<div class="project-container">
+<h1>'<%= project["title"]%>', designed by <%=project["design"]%></h1>
+<div class="project-container" >
     <div>
-        <img src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
+        <img class="zoom2" src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
     </div>
-    <div>
+    <div class="project-description"style="background-image:url('https://cdn11.bigcommerce.com/s-z9duiagau2/images/stencil/1280x1280/products/13069/6600/VC18-OATMEAL__08467.1582863614.jpg?c=2')" >
         <ul>
             <li>Design: <%=project["design"]%></li>
             <li>Size, mm: <%=project["size"]%></li>

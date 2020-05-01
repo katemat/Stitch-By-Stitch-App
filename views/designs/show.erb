@@ -1,7 +1,8 @@
-<div class="single-design">
-<h1>Projects</h1>
+<h1>Projects </h1>
 
-<% projects.each do |project|%>
-    <a href="/projects/<%= project["id"]%>"><img src="<%=project["main_image_url"]%>"></a>
-    <% end %>
-<div>
+<div class="single-design">
+    <% projects.each do |project|%>
+        <div><a href="/projects/<%= project["id"]%>"><img  class="zoom" src="<%=project["main_image_url"]%>"></a>
+        </div>
+        <% end %>
+</div>

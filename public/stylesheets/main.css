@@ -8,8 +8,7 @@ body {
     font-family: 'Merriweather', serif;
 }
 
-.main-container {
-    background-image: url('public/fabric-pic.png');
+.main-container, .single-design, .my-projects {
     width: 80%;
     margin: 0 10%;
     display: grid;
@@ -21,12 +20,20 @@ h1 {
     color: rgb(70, 26, 70);
     margin: 0 auto 20px auto;
 }
-.main-container div {
-    background-image: url('/public/fabric-pic.png');
-}
+.main-container div, .single-design div, .my-projects div {
+    background-image: url('https://cloudsfactory.net/wp/wp-content/uploads/2014/05/001belfast.jpg');
+    text-align: center;
 
-div img {
+}
+.single-design a:visited {
+    color: #461a46;
+  }
+.main-container img, .single-design img, .my-projects img {
+    margin: 20px;
     width:150px;  
+}
+.med-img {
+    width: 150px;
 }
 
 .logo-pic {
@@ -83,12 +90,32 @@ div img {
   .zoom:hover {
     transform: scale(3); 
   }
+
+.zoom2 {
+    width: 300px;
+    margin: auto 100px;
+    transition: transform .3s; 
+    transition: 3s ease-in-out;
+  }
+  
+  .zoom2:hover {
+    transform: scale(2); 
+    text-align: center;
+  }
+
  .project-container {
     width: 90%;
     margin: 20px auto; 
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
+}
+
+.project-description {
+    font-size: 1.5em;
+    margin: auto 30px;
+    color: #461a46;
+    background-image: url('fabric-pic.png');
 }
 
 .slideshow-area , .edit-area {
@@ -251,5 +278,14 @@ h3 {
     align-items: center;
 }
 
+
+article {
+    color: #461a46;
+    background-image: url('fabric-pic.png');
+    margin: 10px auto;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    text-align: center;
+}
 
   

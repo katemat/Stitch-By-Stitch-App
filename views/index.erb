@@ -1,7 +1,10 @@
 <div class="main-page-wrapper">
     <h1>Welcome to the Cross Stitch World</h1>
+
+    <article> Ready for another project? Cannot deside which one to start? <br>With our wide collection of already stitched designs it will be easier to pick your next project.
+    </article>
     
-    <div class="main-container">
+    <div class="main-container" >
         <% projects.each do |project|%>
             <div>
             <a href="/projects/<%= project["id"]%>"><img class="zoom" src="<%=project["main_image_url"]%>"></a></div>
