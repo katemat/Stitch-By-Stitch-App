@@ -3,7 +3,7 @@
 
 # Project #2: Building My First Full-stack Application
 
-## You can check my [solution] (https://stitch-by-stitch-app.herokuapp.com/)
+## You can check my [solution](https://stitch-by-stitch-app.herokuapp.com/)
 ### Overview
 ---
 'Stitch by Stith' is **a Sinatra app**, aiming to help cross-stitchers to pick the next project based on our collection of finished designs. 
