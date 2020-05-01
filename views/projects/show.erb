@@ -12,25 +12,25 @@
             <li>Started: <%=project["start"]%></li>
             <li>Finished: <%=project["finish"]%></li>
             <li>Additional Info: <%=project["details"]%></li>
+            <li>Posted by: <%= user["name"]%></li>
         </ul>
     </div>
-     
-     
-  
 
-  
     
-
-    <div class="edit-area">
-        <div class="edit-link">
-        <a href="/projects/<%= project["id"]%>/edit">Edit information</a>
-    </div>
-    <div>
+<div class="edit-delete-option">
+    <% if logged_in? && project["user_id"] == session[:user_id]%>
+        <div class="edit-area">
+        
+        <a class="edit-project" href="/projects/<%= project["id"]%>/edit">Edit information</a>
+    
         <form class="delete-form" action="/projects" method="post">
             <input type="hidden" name="id" value="<%= project["id"] %>">
             <input type="hidden" name="_method" value="delete">
             <button class="delete-btn">Delete Post</button>
         </form>
     </div>
-    </div>
+    <% end %>
 </div>
+    
+</div>
+

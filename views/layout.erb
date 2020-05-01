@@ -5,39 +5,38 @@
   <title>Stitch by Stitch</title>
   <meta name="viewport" content=
   "width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href='/stylesheets/main.css'>
 </head>
 <body>
   <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#">Designs</a>
-    <a href="/">Projects</a>
-    <div class="dropdown">
+    <a href="/">Home</a>
+    <a href="/designs">Designs</a>
+    <a href="/projects">Projects</a>
+    <div class="greeting">
       <% if logged_in? %>
-      Welcome back, <%= current_user["name"] %>
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#">Create New</a>
-      <a href="#">My projects</a>
-      <a href="#">Sign out</a>
-  </div>
-</div>
-      
-      <a href="/projects/new">post new project</a>
-      <form action="/logout" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button>logout</button>
-      </form>
-
+        Welcome back, <%= current_user["name"] %>
+      <% end %>
+    </div>
+    <% if logged_in? %>
+       <form action="/logout" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="signout-btn">Sign out</button>
+    </form>
+      <% else %>
+    <a class="login" href="/login"> <img class="login-icon" src='/stylesheets/login-icon.png'></a>
     <% end %>
-    
-    <a href="/login"> <img class="login-icon" src='/stylesheets/login-icon.png'></a>
   </div>
-  </div>
-
+    <% if logged_in? %>
+      <a class="personal-link" href="/projects/new">Create New</a>
+      <a class="personal-link" href="/projects/user/<%=current_user["id"]%>"> My Projects</a>
+    <% end %>
+    <div class="logo-div"><img class="logo-pic" src="StitchbyStitch.png"></div>
   
-  <%= yield %>
+    <%= yield %>
+    <footer>
+      <div>&copy;2020 Stitch by Stitch Team</div>
+    </footer>
 
 <script src="/javascripts/application.js"></script>
 </body>

@@ -5,56 +5,107 @@
 body {
     background-color: rgb(243, 240, 245);
     margin: 0 auto;
+    font-family: 'Merriweather', serif;
 }
 
-.container {
-    width: 90%;
-    margin: 0 5%;
+.main-container {
+    background-image: url('public/fabric-pic.png');
+    width: 80%;
+    margin: 0 10%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
 }
+h1 {
+    text-align: center;
+    color: rgb(70, 26, 70);
+    margin: 0 auto 20px auto;
+}
+.main-container div {
+    background-image: url('/public/fabric-pic.png');
+}
+
 div img {
-    width:100px;
-    height: 100px;
+    width:150px;  
+}
+
+.logo-pic {
+    margin: 10px 10px;
+    width: 200px;
+}
+.topnav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 2fr 0.5fr;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
+}
+
+.topnav .login {
+    text-align: right;
+}
+
+.topnav .greeting {
+    text-align: right;
+    color: #f2f2f2;
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+ 
+.signout-btn {
+    background-color: rgb(109, 86, 117);
+    border: none;
+    font-size: 1.5em;
+}
+
+.signout-btn:hover {
+    background-color: #461a46;
+    color: rgb(202, 200, 202);
+    font-weight: bolder;
+}
+
+.personal-link {
+    float: right;
+    margin: 10px 30px;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.personal-link:hover {
+    color: blue;
 }
 
 .zoom {
-    
-    transition: transform .3s; /* Animation */
-    /* width: 200px;
-    height: 200px;
-    margin: 0 auto; */
+    transition: transform .3s; 
+    transition: 1s ease-in-out;
   }
   
   .zoom:hover {
-    transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(3); 
   }
- /* .project-container {
+ .project-container {
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto; 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5fr 2fr 1fr;
     justify-content: center;
 }
 
 .slideshow-area , .edit-area {
     grid-column-start: span 2; 
 } 
- */
+
  .topnav {
     overflow: hidden;
     background-color: rgb(109, 86, 117);
   }
   
 .topnav a {
-float: left;
-color: #f2f2f2;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 25px;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 2em;
 }
   
 .topnav a:hover {
@@ -62,28 +113,21 @@ background-color: rgb(70, 26, 70);
 color: rgb(202, 200, 202);
 }
 
-/* .topnav a.active {
-background-color: rgb(243, 212, 241);
-color: rgb(64, 8, 71);
-} */
-
 .login-icon {
-    
     width: 50px;
     height: 50px;
 }
 
-  /* ======= */
-.login-wrapper {
-    width: 400px;
-    height: 300px;
+.login-wrapper , .signup-wrapper {
+    width: 500px;
+    height: 350px;
 }
 
 .new-project-wrapper, .update-form-wrapper {
     width: 800px;
     height: 550px;
 }
-.login-wrapper, .new-project-wrapper, .update-form-wrapper {
+.login-wrapper, .new-project-wrapper, .update-form-wrapper , .signup-wrapper {
     position: absolute;
     top: 20%;
     left: 30%;
@@ -96,46 +140,116 @@ color: rgb(64, 8, 71);
     color: rgb(70, 26, 70);
 }
 
-  /* .login-form {
-      width: 350px;
-      height: 500px;
-  } */
-.login-wrapper h1, p {
-    margin: auto auto 0 auto;
+.login-wrapper h1, .login-wrapper p, .signup-wrapper h1, .signup-wrapper p {
+    margin: 10px auto 0 auto;
 }
-.login-form, .new-project-form, .update-form {
-    margin: 10px auto;;
+.login-form, .new-project-form, .update-form, .signup-form {
+    margin: 10px auto;
 }
-  .login-form label, .new-project-form label, .update-form label {
-      display: inline-block;
-      width: 70px;
-      text-align: right;
-  }
-  .new-project-form label, .update-form label {
-      width: 180px;
-  }
+.login-form label, .new-project-form label, .update-form label, .signup-form label {
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+}
+.new-project-form label, .update-form label  {
+    width: 180px;
+}
 
-  .login-form button, .new-project-form button, .update-form button{
+.login-form button, .new-project-form button, .update-form button, .signup-form button {
     background: rgb(109, 86, 117);
     color: #f2f2f2; 
     font-size: 1.5em;
     border-radius: 6px;
-  }
+}
 
-  .login-form input, .new-project-form input, textarea, .update-form input{
-      width: 60%;
-      border-radius: 5px;
-  }
+.login-form input, .new-project-form input, textarea, .update-form input, .signup-form input {
+    width: 60%;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
 
-  .login-form div, .new-project-form div, .update-form div {
-      margin: 10px auto;
-  }
+.login-form div, .new-project-form div, .update-form div, .signup-form div {
+    margin: 20px auto;
+}
 
-  label a {
-      color: green;
-      font-weight: bold;
-  }
+label a {
+    color: green;
+    font-weight: bold;
+}
 
-  .signup-link {
-      margin: 30px auto;
+.signup-link {
+    margin: 40px auto;
+}
+
+.signup-link a {
+    font-weight: bolder;
+}
+.edit-area {
+    grid-column: span 2;
+}
+.edit-project  {
+    background-color: rgb(109, 86, 117);
+    margin: 100px auto;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
   }
+.delete-btn, .edit-project {
+    color: #f2f2f2;
+    font-size: 1.25em;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.delete-form {
+    margin: 100px auto;
+    float: right;
+}
+
+.delete-btn {
+    background-color: rgb(221, 149, 149);
+    border: none;
+    height: 50px;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+.edit-project:hover {
+    background-color: #461a46;
+}
+
+.list-design {
+    margin: 20px 40px;
+    font-size: 1.5em;
+}
+
+.list-design a{
+    text-decoration: none;
+}
+
+footer div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* background-color: rgb(191, 172, 197); */
+    height: 40px;
+    align-items: center;
+    padding: 10px;
+}
+
+h3 {
+    margin: 50px;
+}
+
+ .my-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+
+  

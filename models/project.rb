@@ -13,8 +13,7 @@ end
     run_sql("INSERT INTO projects (
         title, design, size, colors, fabric_count, start, finish, details, main_image_url, user_id) 
         VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10);", [
-        title, design, size, colors, fabric_count, start, finish, details, main_image_url, user_id])
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10);", [title, design, size, colors, fabric_count, start, finish, details, main_image_url, user_id])
   end
 
   def find_one_project_by_id(id)
@@ -31,4 +30,17 @@ end
     run_sql(sql, [id])
   end
 
-  
+  def all_designs()
+    sql = "SELECT * FROM projects;"
+    run_sql(sql) 
+  end 
+
+  def find_projects_by_design(design)
+    sql = "SELECT * FROM projects where design = $1;"
+    run_sql(sql, [design])
+  end
+
+  def find_all_projects_by_user_id(user_id)
+    sql = "SELECT * FROM projects WHERE user_id = $1;"
+    run_sql(sql, [user_id])
+  end

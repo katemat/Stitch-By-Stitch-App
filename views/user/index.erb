@@ -1,0 +1,14 @@
+
+<h1>My Projects</h1>
+<div>
+<% if user_projects.count == 0 %>
+    <h3>You don't have any projects yet. </h3>
+    <% end %>
+
+<div class="my-projects">
+<% user_projects.each do |project|%>
+        <div><a id="my-project" href="/projects/<%= project["id"]%>"><img src="<%=project["main_image_url"]%>"></a>
+        </div>
+    <% end %>
+<div>
+</div>

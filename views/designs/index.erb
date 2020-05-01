@@ -1,0 +1,15 @@
+<h1>The list of Designers</h1>
+
+<div class="list-design">
+    <% designs = [] %>
+    <% projects.each do |project| %>
+        <% designs << project["design"] %>
+    <% end %>
+
+    <% designs = designs.uniq.sort()%>
+    <% designs.each do |design| %>
+        <ul>
+            <li><a href="/designs/<%= design%>"> <%= design%></a></li>
+        </ul>
+    <% end %>
+</div>

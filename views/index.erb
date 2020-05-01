@@ -1,9 +1,10 @@
-
-<h1>Welcome to Stitch World</h1>
- 
-<div class="container">
-    <% projects.each do |project|%>
-        <div>
-        <a href="/projects/<%= project["id"]%>"><img class="zoom" src="<%=project["main_image_url"]%>"></a></div>
-    <% end %>
+<div class="main-page-wrapper">
+    <h1>Welcome to the Cross Stitch World</h1>
+    
+    <div class="main-container">
+        <% projects.each do |project|%>
+            <div>
+            <a href="/projects/<%= project["id"]%>"><img class="zoom" src="<%=project["main_image_url"]%>"></a></div>
+        <% end %>
+    </div>
 </div>

@@ -21,3 +21,16 @@ user = find_one_user_by_email('test@gmail.com')
 end
 
 
+show.erb
+========================
+<div class="w3-content w3-display-container">
+    <% images_arr = images["image_arr"].gsub(/[{}]/, '').split(',') %>
+    <% images_arr.each do |img|%>
+    <img class="mySlides" src="<%= img %>" style="width:100%">
+    <% end %>
+    
+<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+==========================     
+  

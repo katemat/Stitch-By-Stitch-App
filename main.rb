@@ -11,8 +11,15 @@ require_relative 'lib'
 
 enable :sessions
 
-
 get '/' do
+  projects = all_projects()
+
+  erb(:index, locals: {
+    projects: projects
+  })
+end
+
+get '/projects' do
   projects = all_projects()
 
   erb(:index, locals: {
@@ -22,7 +29,7 @@ end
 
 
 get '/projects/new' do
-  redirect "/login" unless logged_in?
+  # redirect "/login" unless logged_in?
   erb(:'/projects/new')
 end
 
@@ -30,6 +37,7 @@ end
 get '/projects/:id' do 
   project = find_one_project_by_id(params[:id])
   user = find_one_user_by_id(project["user_id"])
+  
   # images = all_images_by_project_id(params[:id])
   
   erb(:'projects/show', locals: {
@@ -40,27 +48,27 @@ get '/projects/:id' do
 end
 
 post '/projects' do
-  # guard condition
-  redirect "/login" unless logged_in?
+  # # guard condition
+  # redirect "/login" unless logged_in?
   create_project(params[:title], params[:design],params[:size],params[:colors],params[:fabric_count],params[:start],params[:finish],params[:details],params[:main_image_url],current_user['id'])
   redirect "/"
 end
 
 delete '/projects' do
-  redirect "/login" unless logged_in?
+  # redirect "/login" unless logged_in?
   delete_project(params[:id])
   redirect "/"
 end
 
 get '/projects/:id/edit' do
-  redirect "/login" unless logged_in?
+  # redirect "/login" unless logged_in?
   project = find_one_project_by_id(params[:id])
   
   erb(:'/projects/edit', locals: { project: project })
 end
 
 patch '/projects' do
-  redirect "/login" unless logged_in?
+  # redirect "/login" unless logged_in?
   update_project(
     params[:id], 
     params[:title], 
@@ -105,7 +113,33 @@ delete '/logout' do
   redirect "/"
 end
 
+get '/designs' do
+  projects = all_designs()
+  erb(:'/designs/index', locals: {
+    projects: projects
+  })
+end
 
+get '/designs/:design' do
+  projects = find_projects_by_design(params[:design])
 
+  erb(:'/designs/show', locals: {
+    projects: projects
+  })
+end
+
+get '/projects/user/:user_id' do
+  # project = find_one_project_by_id(params[:id])
+  # user = find_one_user_by_id(project["user_id"])
+  
+  # projects = all_projects()
+  user_projects = find_all_projects_by_user_id(params[:user_id])
+
+  
+  erb(:'user/index', locals: {
+    user_projects: user_projects,
+    # projects: projects
+  })
+end
 
 

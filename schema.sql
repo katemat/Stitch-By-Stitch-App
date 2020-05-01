@@ -22,6 +22,8 @@ CREATE TABLE projects(
 );
 
 ALTER TABLE projects ADD COLUMN user_id INTEGER;
+ALTER TABLE images DROP COLUMN image_arr;
+ALTER TABLE images ADD COLUMN image_url TEXT;
 
 CREATE TABLE images(
     image_arr TEXT [],
