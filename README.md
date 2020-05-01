@@ -10,7 +10,7 @@
 
 ### The user can:
 - see all Projects posted on the web site,
-- sign up/log in functionality(if they make sense)**, with encrypted passwords & an authorization flow
+- sign up/log in (encrypted passwords & an authorization flow used)
 - when loged in do all CRUD operations( including 'edit' and 'delete Post' the user added before)
 
 ---
