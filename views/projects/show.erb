@@ -1,9 +1,15 @@
 <h1>'<%= project["title"]%>', designed by <%=project["design"]%></h1>
-<div class="project-container" >
+<div class="project-container"  >
     <div>
+        💞<%=likes_count%></p>
         <img class="zoom2" src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
+        <h2><%= likes_count %> likes</h2>
+        <form action="/likes" method="post">
+            <input type="hidden"  name="project_id" value="<%= project["id"] %>">
+            <button>Likes</button>
+        </form>     
     </div>
-    <div class="project-description"style="background-image:url('https://cdn11.bigcommerce.com/s-z9duiagau2/images/stencil/1280x1280/products/13069/6600/VC18-OATMEAL__08467.1582863614.jpg?c=2')" >
+    <div class="project-description" >
         <ul>
             <li>Design: <%=project["design"]%></li>
             <li>Size, mm: <%=project["size"]%></li>

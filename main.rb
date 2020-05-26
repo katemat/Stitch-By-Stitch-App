@@ -2,20 +2,24 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pg' 
+require 'cloudinary'
 
 
 require_relative 'models/project'
 require_relative 'models/user'
 require_relative 'models/image'
+require_relative 'models/like'
 require_relative 'lib'
 
 enable :sessions
 
 get '/' do
   projects = all_projects()
+  likes_count = find_likes_count_by_project_id(params[:id])
 
   erb(:index, locals: {
-    projects: projects
+    projects: projects,
+    likes_count: likes_count
   })
 end
 
@@ -37,12 +41,14 @@ end
 get '/projects/:id' do 
   project = find_one_project_by_id(params[:id])
   user = find_one_user_by_id(project["user_id"])
+  likes_count = find_likes_count_by_project_id(params[:id])
   
   # images = all_images_by_project_id(params[:id])
   
   erb(:'projects/show', locals: {
     project: project,
-    user: user
+    user: user,
+    likes_count: likes_count
     # images: images
   })
 end
@@ -50,7 +56,16 @@ end
 post '/projects' do
   # # guard condition
   # redirect "/login" unless logged_in?
-  create_project(params[:title], params[:design],params[:size],params[:colors],params[:fabric_count],params[:start],params[:finish],params[:details],params[:main_image_url],current_user['id'])
+  auth = {
+    cloud_name: "dojrv9v91",
+    api_key: "359534673478845", 
+    api_secret: "2qLj9PMR_0vt3cXTvh2hNsiuTf8"
+  }
+
+  image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
+  
+
+  create_project(params[:title], params[:design],params[:size],params[:colors],params[:fabric_count],params[:start],params[:finish],params[:details],image['secure_url'],current_user['id'])
   redirect "/"
 end
 
@@ -69,6 +84,13 @@ end
 
 patch '/projects' do
   # redirect "/login" unless logged_in?
+  if params[:file]
+    file = params[:file][:tempfile].patch
+  
+  else
+    file = "public/images/no-image.png"
+  end
+
   update_project(
     params[:id], 
     params[:title], 
@@ -79,7 +101,7 @@ patch '/projects' do
     params[:start],
     params[:finish],
     params[:details],
-    params[:main_image_url],
+    file,
   )
   redirect "/projects/#{params[:id]}"  
 end
@@ -140,6 +162,12 @@ get '/projects/user/:user_id' do
     user_projects: user_projects,
     # projects: projects
   })
+end
+
+post '/likes' do
+  #sql - insert
+  create_like(params[:project_id], session[:user_id])
+  redirect "/projects/#{params[:project_id]}"
 end
 
 

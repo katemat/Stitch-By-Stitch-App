@@ -7,8 +7,9 @@
 
 <div class="my-projects">
     <% user_projects.each do |project|%>
-        <div><a id="my-project" href="/projects/<%= project["id"]%>"><img src="<%=project["main_image_url"]%>"></a>
+        <div>
+            <a id="my-project" href="/projects/<%= project["id"]%>"><p class="project-info"><%=project["title"]%>,<br> <%=project["design"]%></p></a>
+            <img src="<%=project["main_image_url"]%>">
         </div>
     <% end %>
 </div>
-

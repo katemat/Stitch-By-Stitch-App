@@ -9,27 +9,69 @@ body {
 }
 
 .main-container, .single-design, .my-projects {
-    width: 80%;
-    margin: 0 10%;
+    width: 990px; 
+    margin: 10px auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
+    grid-gap: 1.5%;
+    justify-content: center;
+   
 }
+
 h1 {
     text-align: center;
     color: rgb(70, 26, 70);
     margin: 0 auto 20px auto;
 }
+
+/* .project-container {
+    background-image:url('https://images-na.ssl-images-amazon.com/images/I/71-t6IFJLZL._AC_SL1200_.jpg');
+} */
 .main-container div, .single-design div, .my-projects div {
     background-image: url('https://cloudsfactory.net/wp/wp-content/uploads/2014/05/001belfast.jpg');
+    margin: 0 auto;
     text-align: center;
-
+    align-items: center;
+    width: 240px;
+    height: 300px;
+    border: 1px solid rgb(170, 155, 170);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgb(170, 155, 170);
 }
-.single-design a:visited {
-    color: #461a46;
-  }
+
+.project-info {
+    text-align: center;
+    height: 50px;
+    margin: 0 auto;
+    padding: 4px;
+    background-color: rgb(214, 197, 214);
+}
+
+.single-design a,
+.single-design a:visited,
+.main-container a,
+.main-container a:visited,
+.my-projects a,
+.my-projects a:visited {
+    color: rgb(70, 26, 70);
+    text-decoration: none;
+}
+.single-design a:hover,
+.main-container a:hover,
+.my-projects a:hover {
+    font-weight: bolder;
+    color: #f2f2f2;
+}
+
+.single-design p:hover,
+.main-container p:hover,
+.my-projects p:hover {
+    background-color:rgb(109, 86, 117);
+}
+
 .main-container img, .single-design img, .my-projects img {
     margin: 20px;
+    text-align: center;
     width:150px;  
 }
 .med-img {
@@ -46,9 +88,11 @@ h1 {
     justify-content: center;
     align-items: center;
     height: 80px;
+    overflow: hidden;
+    background-color: rgb(109, 86, 117);
     box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
 }
-
+   
 .topnav .login {
     text-align: right;
 }
@@ -88,7 +132,7 @@ h1 {
   }
   
   .zoom:hover {
-    transform: scale(3); 
+    transform: scale(2.5); 
   }
 
 .zoom2 {
@@ -121,11 +165,6 @@ h1 {
 .slideshow-area , .edit-area {
     grid-column-start: span 2; 
 } 
-
- .topnav {
-    overflow: hidden;
-    background-color: rgb(109, 86, 117);
-  }
   
 .topnav a {
     color: #f2f2f2;
@@ -257,27 +296,27 @@ label a {
     text-decoration: none;
 }
 
-footer div {
+/* footer div {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    /* background-color: rgb(191, 172, 197); */
+    width: 100%; 
+    margin: 10px auto;
     height: 40px;
     align-items: center;
     padding: 10px;
-}
+} */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 10px;
+    /* height: 2.5rem;             */
+  }
 
 h3 {
     margin: 50px;
 }
-
- .my-projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
-}
-
 
 article {
     color: #461a46;
