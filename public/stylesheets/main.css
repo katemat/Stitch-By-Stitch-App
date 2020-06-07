@@ -145,7 +145,7 @@ h1 {
 
 .zoom2 {
   width: 300px;
-  max-height: 450px;
+  max-height: 420px;
   margin: 5% auto;
   transition: transform .3s; 
   transition: 2s ease-in-out;
