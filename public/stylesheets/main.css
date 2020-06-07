@@ -1,50 +1,57 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(243, 240, 245);
-    margin: 0 auto;
-    font-family: 'Merriweather', serif;
+  background-color: rgb(243, 240, 245);
+  margin: 0 auto;
+  font-family: 'Merriweather', serif;
 }
 
 .main-container, .single-design, .my-projects {
-    width: 990px; 
-    margin: 10px auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1.5%;
-    justify-content: center;
+  /* width: 990px;  */
+  margin: 10px 40px;
+  min-height: calc(100vh - 80px - 20px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 8px;
+  justify-content: stretch;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5%;
+  justify-content: center; */
    
 }
 
 h1 {
-    text-align: center;
-    color: rgb(70, 26, 70);
-    margin: 0 auto 20px auto;
+  text-align: center;
+  color: rgb(70, 26, 70);
+  margin: 0 auto 20px auto;
 }
 
-/* .project-container {
-    background-image:url('https://images-na.ssl-images-amazon.com/images/I/71-t6IFJLZL._AC_SL1200_.jpg');
-} */
-.main-container div, .single-design div, .my-projects div {
-    background-image: url('https://cloudsfactory.net/wp/wp-content/uploads/2014/05/001belfast.jpg');
-    margin: 0 auto;
-    text-align: center;
-    align-items: center;
-    width: 240px;
-    height: 300px;
-    border: 1px solid rgb(170, 155, 170);
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 3px rgb(170, 155, 170);
+.main-container div, .single-design div, .my-projects div, .project-container-img {
+  background-image: url('https://cloudsfactory.net/wp/wp-content/uploads/2014/05/001belfast.jpg');
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  min-width: 240px;
+  height: 300px;
+  border: 1px solid rgb(170, 155, 170);
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px rgb(170, 155, 170);
+}
+
+.project-container-img {
+  width: 400px;
+  height: 500px;
 }
 
 .project-info {
-    text-align: center;
-    height: 50px;
-    margin: 0 auto;
-    padding: 4px;
-    background-color: rgb(214, 197, 214);
+  text-align: center;
+  height: 50px;
+  margin: 0 auto;
+  padding: 4px;
+  background-color: rgb(214, 197, 214);
 }
 
 .single-design a,
@@ -53,247 +60,247 @@ h1 {
 .main-container a:visited,
 .my-projects a,
 .my-projects a:visited {
-    color: rgb(70, 26, 70);
-    text-decoration: none;
+  color: rgb(70, 26, 70);
+  text-decoration: none;
 }
 .single-design a:hover,
 .main-container a:hover,
 .my-projects a:hover {
-    font-weight: bolder;
-    color: #f2f2f2;
+  font-weight: bolder;
+  color: #f2f2f2;
 }
 
 .single-design p:hover,
 .main-container p:hover,
 .my-projects p:hover {
-    background-color:rgb(109, 86, 117);
+  background-color:rgb(109, 86, 117);
 }
 
 .main-container img, .single-design img, .my-projects img {
-    margin: 20px;
-    text-align: center;
-    width:150px;  
+  margin: 20px;
+  text-align: center;
+  width: 150px;  
 }
 .med-img {
-    width: 150px;
+  width: 150px;
 }
 
 .logo-pic {
-    margin: 10px 10px;
-    width: 200px;
+  margin: 10px 10px;
+  width: 200px;
 }
 .topnav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) 2fr 0.5fr;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    overflow: hidden;
-    background-color: rgb(109, 86, 117);
-    box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 2fr 2fr 0.5fr;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  overflow: hidden;
+  background-color: rgb(109, 86, 117);
+  box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
 }
    
 .topnav .login {
-    text-align: right;
+  text-align: right;
 }
 
 .topnav .greeting {
-    text-align: right;
-    color: #f2f2f2;
-    margin: 0 10px;
-    font-size: 1.2em;
+  text-align: right;
+  color: #f2f2f2;
+  margin: 0 10px;
+  font-size: 1.2em;
 }
  
 .signout-btn {
-    background-color: rgb(109, 86, 117);
-    border: none;
-    font-size: 1.5em;
+  background-color: rgb(109, 86, 117);
+  border: none;
+  font-size: 1.5em;
 }
 
 .signout-btn:hover {
-    background-color: #461a46;
-    color: rgb(202, 200, 202);
-    font-weight: bolder;
+  background-color: #461a46;
+  color: rgb(202, 200, 202);
+  font-weight: bolder;
 }
 
 .personal-link {
-    float: right;
-    margin: 10px 30px;
-    font-size: 1.5em;
-    text-decoration: none;
+  float: right;
+  margin: 10px 30px;
+  font-size: 1.5em;
+  text-decoration: none;
 }
+
 .personal-link:hover {
-    color: blue;
+  color: blue;
 }
 
 .zoom {
-    transition: transform .3s; 
-    transition: 1s ease-in-out;
-  }
+  transition: transform .3s; 
+  transition: 1s ease-in-out;
+}
   
-  .zoom:hover {
-    transform: scale(2.5); 
-  }
+.zoom:hover {
+  transform: scale(2.5); 
+}
 
 .zoom2 {
-    width: 300px;
-    margin: auto 100px;
-    transition: transform .3s; 
-    transition: 3s ease-in-out;
-  }
+  width: 300px;
+  margin: 5% auto;
+  transition: transform .3s; 
+  transition: 2s ease-in-out;
+}
   
-  .zoom2:hover {
-    transform: scale(2); 
-    text-align: center;
-  }
+.zoom2:hover {
+  transform: scale(2.5); 
+  text-align: center;
+}
 
- .project-container {
-    width: 90%;
-    margin: 20px auto; 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
+.project-container {
+  width: 90%;
+  margin: 20px auto; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
 }
 
 .project-description {
-    font-size: 1.5em;
-    margin: auto 30px;
-    color: #461a46;
-    background-image: url('fabric-pic.png');
+  font-size: 1.5em;
+  margin: 10px 30px;
+  color: #461a46;
+  background-image: url('fabric-pic.png');
 }
 
 .slideshow-area , .edit-area {
-    grid-column-start: span 2; 
+  grid-column-start: span 2; 
 } 
   
 .topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 10px 16px;
-    text-decoration: none;
-    font-size: 2em;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 2em;
 }
   
 .topnav a:hover {
-background-color: rgb(70, 26, 70);
-color: rgb(202, 200, 202);
+  background-color: rgb(70, 26, 70);
+  color: rgb(202, 200, 202);
 }
 
 .login-icon {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .login-wrapper , .signup-wrapper {
-    width: 500px;
-    height: 350px;
+  width: 500px;
+  height: 350px;
 }
 
 .new-project-wrapper, .update-form-wrapper {
-    width: 800px;
-    height: 550px;
+  width: 800px;
+  height: 550px;
 }
 .login-wrapper, .new-project-wrapper, .update-form-wrapper , .signup-wrapper {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    border: rgb(90, 67, 90);
-    border-radius: 3px;
-    box-shadow: 5px 5px 5px 5px rgb(141, 119, 141);
-    text-align: center;
-    font-size: 1em;
-    margin: 0 auto;
-    color: rgb(70, 26, 70);
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  border: rgb(90, 67, 90);
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px 5px rgb(141, 119, 141);
+  text-align: center;
+  font-size: 1em;
+  margin: 0 auto;
+  color: rgb(70, 26, 70);
 }
 
 .login-wrapper h1, .login-wrapper p, .signup-wrapper h1, .signup-wrapper p {
-    margin: 10px auto 0 auto;
+  margin: 10px auto 0 auto;
 }
 .login-form, .new-project-form, .update-form, .signup-form {
-    margin: 10px auto;
+  margin: 10px auto;
 }
 .login-form label, .new-project-form label, .update-form label, .signup-form label {
-    display: inline-block;
-    width: 70px;
-    text-align: right;
+  display: inline-block;
+  width: 70px;
+  text-align: right;
 }
 .new-project-form label, .update-form label  {
-    width: 180px;
+  width: 180px;
 }
 
 .login-form button, .new-project-form button, .update-form button, .signup-form button {
-    background: rgb(109, 86, 117);
-    color: #f2f2f2; 
-    font-size: 1.5em;
-    border-radius: 6px;
+  background: rgb(109, 86, 117);
+  color: #f2f2f2; 
+  font-size: 1.5em;
+  border-radius: 6px;
 }
 
 .login-form input, .new-project-form input, textarea, .update-form input, .signup-form input {
-    width: 60%;
-    height: 30px;
-    margin: 0 10px;
-    border-radius: 5px;
-    font-size: 1em;
+  width: 60%;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-size: 1em;
 }
 
 .login-form div, .new-project-form div, .update-form div, .signup-form div {
-    margin: 20px auto;
-}
-
-label a {
-    color: green;
-    font-weight: bold;
+  margin: 20px auto;
 }
 
 .signup-link {
-    margin: 40px auto;
+  margin: 40px auto;
 }
 
 .signup-link a {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 .edit-area {
-    grid-column: span 2;
+  /* grid-column: span 2; */
+  margin: auto 80px;
+  display: flex;
+  justify-content: space-between;
 }
 .edit-project  {
-    background-color: rgb(109, 86, 117);
-    margin: 100px auto;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
+  background-color: rgb(109, 86, 117);
+  margin: 50px auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .delete-btn, .edit-project {
-    color: #f2f2f2;
-    font-size: 1.25em;
-    border-radius: 5px;
-    padding: 10px 10px;
+  color: #f2f2f2;
+  font-size: 1.25em;
+  border-radius: 5px;
+  padding: 10px 10px;
 }
 
 .delete-form {
-    margin: 100px auto;
-    float: right;
+  margin: 50px auto;
+    /* float: right; */
 }
 
 .delete-btn {
-    background-color: rgb(221, 149, 149);
-    border: none;
-    height: 50px;
+  background-color: rgb(221, 149, 149);
+  border: none;
+  height: 50px;
 }
 
 .delete-btn:hover {
-    color: red;
+  color: red;
 }
 .edit-project:hover {
-    background-color: #461a46;
+  background-color: #461a46;
 }
 
 .list-design {
-    margin: 20px 40px;
-    font-size: 1.5em;
+  margin: 20px 40px;
+  font-size: 1.5em;
 }
 
 .list-design a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* footer div {
@@ -307,15 +314,31 @@ label a {
 } */
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin: 10px;
-    /* height: 2.5rem;             */
-  }
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin: 20px;
+}
 
+main {
+  min-height: calc(100vh - 70px);
+}
 h3 {
-    margin: 50px;
+  margin: 50px;
+}
+
+
+.like-btn-div {
+    position: absolute;
+    left: 45%;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    border-radius: 50px;
+    background-color: #fafafa;
+
 }
 
 article {
@@ -327,4 +350,46 @@ article {
     text-align: center;
 }
 
+.extra-info {
+  /* margin: 0; */
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(#7e5a7e, #ac85ac);
+  border-radius: 5px 5px 0 0;
+}
+
+.extra-info p {
+  margin: 0;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 3%;
+  color: #f2f2f2;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.like-form, .like-div {
+  display: inline-block;
+}
+
+.likes-count {
+  text-align: right;
+  padding: 0;
+}
+
+.like-form span, .like-div span {
+  margin: auto 5px auto 0;
+}
+
+.main-container span {
+  display: inline-block;
+  justify-self: right;
   
+}
+

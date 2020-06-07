@@ -1,16 +1,23 @@
 <div class="main-page-wrapper">
-    <h1>Welcome to the Cross Stitch World</h1>
+  <h1>Welcome to the Cross Stitch World</h1>
 
-    <article> Ready for another project? Cannot decide which one to start? <br>With our wide collection of already stitched designs it will be easier to pick your next project.
-    </article>
+  <article> Ready for another project? Cannot decide which one to start? <br>With our wide collection of already stitched designs it will be easier to pick your next project.
+  </article>
     
-    <div class="main-container" >
-        <% projects.each do |project|%>
-            <div>
-                <a href="/projects/<%= project["id"]%>"><p class="project-info"><%=project["title"]%>,<br> <%=project["design"]%></a>
-                <img class="zoom" src="<%=project["main_image_url"]%>">
-            </div>
-            
-        <% end %>
-    </div>
+  <div class="main-container" >
+    <% projects.each do |project|%>
+      <div>
+        <a href="/projects/<%= project["id"]%>">
+          <p class="project-info"><%=project["title"] %>,
+          <% likes = find_likes_count_by_project_id(project["id"])%> 
+            <% if (likes === 0)  %>
+              <span >🤍<%= likes %></span> 
+            <% else %>
+              <span>❤️<%= likes %></span>
+            <% end %>
+        <br> <%=project["design"]%></p></a>
+        <img class="zoom" src="<%=project["main_image_url"]%>">
+      </div>
+    <% end %>
+  </div>
 </div>

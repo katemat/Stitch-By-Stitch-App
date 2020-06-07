@@ -7,19 +7,25 @@
   "width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href='/stylesheets/main.css'>
+  <script src="https://kit.fontawesome.com/4be450f3cb.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body> 
+<main>
   <div class="topnav">
     <a href="/">Home</a>
     <a href="/designs">Designs</a>
-    <a href="/projects">Projects</a>
+    <% if logged_in? %>
+      <a class="personal-link" href="/projects/user/<%=current_user["id"]%>"> My Projects</a>
+      <% else %> <p></p>
+    <% end %>
+    <%# <a href="/projects">Projects</a> %>
     <div class="greeting">
       <% if logged_in? %>
         Welcome back, <%= current_user["name"] %>
       <% end %>
     </div>
     <% if logged_in? %>
-       <form action="/logout" method="post">
+      <form action="/logout" method="post">
       <input type="hidden" name="_method" value="delete">
       <button class="signout-btn">Sign out</button>
     </form>
@@ -29,15 +35,15 @@
   </div>
     <% if logged_in? %>
       <a class="personal-link" href="/projects/new">Create New</a>
-      <a class="personal-link" href="/projects/user/<%=current_user["id"]%>"> My Projects</a>
     <% end %>
     <div class="logo-div"><img class="logo-pic" src="/StitchbyStitch.png"></div>
-  
+    
     <%= yield %>
+    </main>
     <footer>
       <div>&copy;2020 Stitch by Stitch Team</div>
-    </footer>
-
+    </footer> 
 <script src="/javascripts/application.js"></script>
+
 </body>
 </html>

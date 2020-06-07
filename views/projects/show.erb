@@ -1,42 +1,71 @@
 <h1>'<%= project["title"]%>', designed by <%=project["design"]%></h1>
+
 <div class="project-container"  >
-    <div>
-        💞<%=likes_count%></p>
-        <img class="zoom2" src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
-        <h2><%= likes_count %> likes</h2>
+  <div class="project-container-img">
+    <div class="extra-info">
+        <p>Posted by <%= user["name"]%></p>
+        <% if logged_in? %>
+      <div class="like-form">
         <form action="/likes" method="post">
-            <input type="hidden"  name="project_id" value="<%= project["id"] %>">
-            <button>Likes</button>
-        </form>     
-    </div>
-    <div class="project-description" >
-        <ul>
-            <li>Design: <%=project["design"]%></li>
-            <li>Size, mm: <%=project["size"]%></li>
-            <li>Colors: <%=project["colors"]%></li>
-            <li>Fabric, count: <%=project["fabric_count"]%> </li>
-            <li>Started: <%=project["start"]%></li>
-            <li>Finished: <%=project["finish"]%></li>
-            <li>Additional Info: <%=project["details"]%></li>
-            <li>Posted by: <%= user["name"]%></li>
-        </ul>
+          <input type="hidden"  name="project_id" value="<%= project["id"] %>">
+          <button class="heart-btn">
+            <% if (likes_count === 0)  %>
+                🤍
+            <% else %>
+                ❤️ 
+            <% end%>
+          </button> 
+          <span><%= likes_count %></span>
+        </form>
+      </div> 
+      <% else %> 
+        <div class="like-div">
+          <% likes = find_likes_count_by_project_id(project["id"])%> 
+          <button class="heart-btn" disabled>
+            <% if (likes === 0)  %>
+              🤍
+            <% else %>
+              ❤️
+            <% end %>
+          </button> 
+          <span><%= likes_count %></span>
+          
+        </div>
+      <% end %> 
+            
     </div>
 
-    
-<div class="edit-delete-option">
-    <% if logged_in? && project["user_id"] == session[:user_id]%>
-        <div class="edit-area">
-        
-        <a class="edit-project" href="/projects/<%= project["id"]%>/edit">Edit information</a>
-    
-        <form class="delete-form" action="/projects" method="post">
-            <input type="hidden" name="id" value="<%= project["id"] %>">
-            <input type="hidden" name="_method" value="delete">
-            <button class="delete-btn">Delete Post</button>
-        </form>
+    <div>
+      <img class="zoom2" src="<%= project["main_image_url"] %>" alt="photo of <%= project["title"]%>">
     </div>
-    <% end %>
+  </div>
+
+  <div class="project-description" >
+    <ul>
+      <li>Design: <%=project["design"]%></li>
+      <li>Size, mm: <%=project["size"]%></li>
+      <li>Colors: <%=project["colors"]%></li>
+      <li>Fabric, count: <%=project["fabric_count"]%> </li>
+      <li>Started: <%=project["start"]%></li>
+      <li>Finished: <%=project["finish"]%></li>
+      <li>Additional Info: <%=project["details"]%></li>
+    </ul>
+  </div>
+</div>
+
+<div class="edit-delete-option">
+  <% if logged_in? && project["user_id"] == session[:user_id]%>
+
+    <div class="edit-area">   
+      <a class="edit-project" href="/projects/<%= project["id"]%>/edit">Edit information</a>
+      
+      <form class="delete-form" action="/projects" method="post">
+        <input type="hidden" name="id" value="<%= project["id"] %>">
+        <input type="hidden" name="_method" value="delete">
+        <button class="delete-btn">Delete Post</button>
+      </form>
+    </div>
+  <% end %>
 </div>
     
-</div>
 

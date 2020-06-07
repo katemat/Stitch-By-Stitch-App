@@ -4,7 +4,6 @@ require 'sinatra/reloader' if development?
 require 'pg' 
 require 'cloudinary'
 
-
 require_relative 'models/project'
 require_relative 'models/user'
 require_relative 'models/image'
@@ -12,6 +11,12 @@ require_relative 'models/like'
 require_relative 'lib'
 
 enable :sessions
+
+auth = {
+  cloud_name: "dojrv9v91",
+  api_key: "359534673478845", 
+  api_secret: "2qLj9PMR_0vt3cXTvh2hNsiuTf8"
+}
 
 get '/' do
   projects = all_projects()
@@ -84,12 +89,13 @@ end
 
 patch '/projects' do
   # redirect "/login" unless logged_in?
-  if params[:file]
-    file = params[:file][:tempfile].patch
-  
-  else
-    file = "public/images/no-image.png"
-  end
+  auth = {
+    cloud_name: "dojrv9v91",
+    api_key: "359534673478845", 
+    api_secret: "2qLj9PMR_0vt3cXTvh2hNsiuTf8"
+  }
+
+  image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
 
   update_project(
     params[:id], 
@@ -101,7 +107,7 @@ patch '/projects' do
     params[:start],
     params[:finish],
     params[:details],
-    file,
+    image['secure_url']
   )
   redirect "/projects/#{params[:id]}"  
 end
@@ -143,30 +149,27 @@ get '/designs' do
 end
 
 get '/designs/:design' do
+  design = params[:design]
   projects = find_projects_by_design(params[:design])
 
   erb(:'/designs/show', locals: {
-    projects: projects
+    projects: projects, design: design
   })
 end
 
 get '/projects/user/:user_id' do
-  # project = find_one_project_by_id(params[:id])
-  # user = find_one_user_by_id(project["user_id"])
-  
-  # projects = all_projects()
+
   user_projects = find_all_projects_by_user_id(params[:user_id])
 
-  
   erb(:'user/index', locals: {
     user_projects: user_projects,
-    # projects: projects
+  
   })
 end
 
 post '/likes' do
-  #sql - insert
-  create_like(params[:project_id], session[:user_id])
+ 
+  create_or_delete_like(params[:project_id], session[:user_id])
   redirect "/projects/#{params[:project_id]}"
 end
 

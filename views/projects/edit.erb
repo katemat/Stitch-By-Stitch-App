@@ -1,17 +1,18 @@
+<%today = Time.now.strftime("%Y-%m-%d")%>
 
 <div class="update-form-wrapper">
   <h1>Update Project</h1>
-<form  class="update-form" action="/projects" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <input type="hidden" name="id" value="<%= project["id"] %>">
-  <div>
-    <label for="">Title</label>
-    <input name="title" type="text" value="<%= project["title"] %>">
-  </div>
-  <div>
-    <label for="">Design: </label>
-    <input name="design" type="text" value="<%= project["design"] %>">
-  </div>
+  <form  class="update-form" action="/projects" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="id" value="<%= project["id"] %>">
+    <div>
+      <label for="">Title</label>
+      <input name="title" type="text" value="<%= project["title"] %>">
+    </div>
+    <div>
+      <label for="">Design: </label>
+      <input name="design" type="text" value="<%= project["design"] %>">
+    </div>
     <div>
       <label for="">Size, WxH, mm: </label>
       <input name="size" type="text" value="<%= project["size"] %>">
@@ -26,20 +27,20 @@
     </div>
     <div>
       <label for="">Started: </label>
-      <input name="start" type="text" value="<%= project["start"] %>">
+      <input name="start" type="date" value="<%= project["start"] %>" max="<%= today %>">
     </div>
     <div>
       <label for="">Finished: </label>
-      <input name="finish" type="text" value="<%= project["finish"] %>">
+      <input name="finish" type="date" value="<%= project["finish"] %>" max="<%= today %>%">
     </div>
     <div>
-      <label for=""><a href="https://imgbb.com/" target="blank">Get url</a></label>
-      <input name="main_image_url" type="text" value="<%= project["main_image_url"] %>">
+      <label>Additional Info: </label>
+      <textarea name="details" rows="5" cols="50" value="<%= project["details"] %>"></textarea>
     </div>
     <div>
-      <label for="">Additional Info: </label>
-      <textarea name="details" rows="3" cols="50" value="<%= project["details"] %>"></textarea>
+      <label for="add-file">Choose a file:</label>
+      <input type="file" id="add-file" name="image" value="<%= project["main_image_url"] %>">
     </div>
-  <button>Submit changes</button>
-</form>
+    <button>Submit changes</button>
+  </form>
 </div>
