@@ -91,8 +91,8 @@ patch '/projects' do
   # redirect "/login" unless logged_in?
   auth = {
     cloud_name: "dojrv9v91",
-    api_key: "359534673478845", 
-    api_secret: "2qLj9PMR_0vt3cXTvh2hNsiuTf8"
+    api_key: ENV['API_KEY'], 
+    api_secret: ENV['API_SECRET']
   }
 
   image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
