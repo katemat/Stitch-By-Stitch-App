@@ -18,12 +18,28 @@
       <input name="size" type="text" value="<%= project["size"] %>">
     </div>
     <div>
+      <label for="">Width, stitches: </label>
+      <input name="width" type="text" value="<%= project["width"] %>">
+    </div>
+    <div>
+      <label for="">Height, stitches: </label>
+      <input name="height" type="text" value="<%= project["height"] %>">
+    </div>
+    <div>
       <label for="">Colors: </label>
       <input name="colors" type="text" value="<%= project["colors"]%>">
     </div>
     <div>
+      <label for="">Threads </label>
+      <input name="threads" type="text" value="<%= project["threads"]%>">
+    </div>
+    <div>
       <label for="">Fabric, count: </label>
       <input name="fabric_count" type="text" value="<%= project["fabric_count"]%>">
+    </div>
+    <div>
+      <label for="">Fabric, type: </label>
+      <input name="fabric_type" type="text" value="<%= project["fabric_type"]%>">
     </div>
     <div>
       <label for="">Started: </label>
@@ -35,11 +51,15 @@
     </div>
     <div>
       <label>Additional Info: </label>
-      <textarea name="details" rows="5" cols="50" value="<%= project["details"] %>"></textarea>
+      <input name="details"  
+      
+      value="<%= project["details"] %>">
+      
     </div>
+    
     <div>
-      <label for="add-file">Choose a file:</label>
-      <input type="file" id="add-file" name="image" value="<%= project["main_image_url"] %>">
+      <label for="add-file">Upload new photo</label>
+      <input type="file" id="add-file" name="image" required value="<%= project["main_image_url"] %>">
     </div>
     <button>Submit changes</button>
   </form>

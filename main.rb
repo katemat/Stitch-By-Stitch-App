@@ -19,14 +19,32 @@ auth = {
 }
 
 get '/' do
-  projects = all_projects()
+  design_query = ""
+  sort_query = "asc"
+
+  if params[:design]||params[:sort]
+    design_query = params[:design]
+    sort_query = params[:sort]
+  end
+
+  projects = all_projects_by_query(design_query,sort_query)
   likes_count = find_likes_count_by_project_id(params[:id])
 
   erb(:index, locals: {
     projects: projects,
-    likes_count: likes_count
+    likes_count: likes_count,
+    design: design_query, sort_query: sort_query
   })
 end
+# get '/' do
+#   projects = all_projects()
+#   likes_count = find_likes_count_by_project_id(params[:id])
+
+#   erb(:index, locals: {
+#     projects: projects,
+#     likes_count: likes_count
+#   })
+# end
 
 get '/projects' do
   projects = all_projects()
@@ -70,7 +88,7 @@ post '/projects' do
   image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
   
 
-  create_project(params[:title], params[:design],params[:size],params[:colors],params[:fabric_count],params[:start],params[:finish],params[:details],image['secure_url'],current_user['id'])
+  create_project(params[:title], params[:design],params[:size], params[:width], params[:height], params[:colors], params[:threads], params[:fabric_count], params[:fabric_type], params[:start],params[:finish],params[:details],image['secure_url'],current_user['id'])
   redirect "/"
 end
 
@@ -93,6 +111,7 @@ patch '/projects' do
     cloud_name: "dojrv9v91",
     api_key: ENV['API_KEY'], 
     api_secret: ENV['API_SECRET']
+    
   }
 
   image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
@@ -102,8 +121,12 @@ patch '/projects' do
     params[:title], 
     params[:design],
     params[:size],
+    params[:width],
+    params[:height],
     params[:colors],
+    params[:threads],
     params[:fabric_count],
+    params[:fabric_type],
     params[:start],
     params[:finish],
     params[:details],
@@ -123,15 +146,24 @@ post '/login' do
     session[:user_id] = user['id'] 
     redirect "/"
   else
+    @error = "Incorrect username or password"
     erb :'/sessions/login'
   end
 end
 
 get '/signup' do 
+  @error = nil
   erb(:'/user/new')
 end
 
 post '/signup' do
+  user = find_one_user_by_email(params[:email])
+  if user  
+    @error = "user with email: #{params[:email]} already exists."
+    return erb(:'/user/new')
+  end
+  
+
   user = create_user(params[:name], params[:email], params[:password])
   redirect "/login"
 end

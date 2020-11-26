@@ -1,10 +1,32 @@
 <div class="main-page-wrapper">
   <h1>Welcome to the Cross Stitch World</h1>
 
-  <article> Ready for another project? Cannot decide which one to start? <br>With our wide collection of already stitched designs it will be easier to pick your next project.
+  <article> Ready for another project? Cannot decide which one to start? <br>With our stitched designs gallery  it will be easier to select your next project.
   </article>
     
+
+    <div class="search-layout">
+      <form class="search-bar" action="/">
+        <div class="select">
+          <select name="sort">    
+            <option value="asc" <% if sort_query == "asc"%> selected <% end%>>Sort by Title, A-Z</option>
+            <option value="desc" <% if sort_query == "desc"%> selected <% end%>>Sort by Title, Z-A</option>         
+          </select>
+        </div>
+        <div>
+          <div class="input-container">
+            <i class="fa fa-search icon"></i>
+            <input class="input-field" type="text" placeholder="Enter the Designer (Company Name)" name="design" value = '<%=design%>'>
+          </div>
+          <div class="search-btn-layout">
+            <button class="search-btn">SEARCH</button>
+          </div>
+        </div>    
+</form>
+</div>
+
   <div class="main-container" >
+  
     <% projects.each do |project|%>
       <div>
         <a href="/projects/<%= project["id"]%>">

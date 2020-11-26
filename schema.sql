@@ -24,6 +24,12 @@ CREATE TABLE projects(
 ALTER TABLE projects ADD COLUMN user_id INTEGER;
 ALTER TABLE images DROP COLUMN image_arr;
 ALTER TABLE images ADD COLUMN image_url TEXT;
+-- 13.11.20
+ALTER TABLE projects ADD COLUMN width INTEGER;
+ALTER TABLE projects ADD COLUMN height INTEGER;
+-- 16.11.2020
+ALTER TABLE projects ADD COLUMN threads text;
+ALTER TABLE projects ADD COLUMN fabric_type text;
 
 CREATE TABLE images(
     image_arr TEXT [],

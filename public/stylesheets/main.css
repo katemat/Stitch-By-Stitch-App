@@ -2,13 +2,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --cl-primary-2: rgb(70, 26, 70);
+  --bg-clr-0: rgb(243, 240, 245);
+  --bg-clr-1: rgb(109, 86, 117);
+  --bg-clr-2: rgb(214, 197, 214);
+  --tx-sh: 3px 2px 5px rgb(202, 200, 202);
+  --bx-sh: 3px 3px 3px 3px rgb(141, 119, 141);
+  --bx-sh-2: 3px 3px 3px 3px rgb(170, 155, 170);
+  --bx-sh-3: 5px 5px 5px 5px rgb(141, 119, 141);
+}
+
 body {
-  background-color: rgb(243, 240, 245);
+  background-color: var(--bg-clr-0);
   margin: 0 auto;
   font-family: 'Merriweather', serif;
 }
 
-.main-container, .single-design, .my-projects {
+.main-container,
+.single-design,
+.my-projects {
   /* width: 990px;  */
   margin: 10px 40px;
   min-height: calc(100vh - 80px - 20px);
@@ -20,25 +33,27 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5%;
   justify-content: center; */
-   
 }
 
 h1 {
   text-align: center;
-  color: rgb(70, 26, 70);
-  margin: 0 auto 20px auto;
+  color: var(--cl-primary-2);
+  margin: 50px auto 30px auto;
 }
 
-.main-container div, .single-design div, .my-projects div, .project-container-img {
+.main-container div,
+.single-design div,
+.my-projects div,
+.project-container-img {
   background-image: url('https://cloudsfactory.net/wp/wp-content/uploads/2014/05/001belfast.jpg');
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   align-items: center;
   min-width: 240px;
   height: 300px;
   border: 1px solid rgb(170, 155, 170);
   border-radius: 5px;
-  box-shadow: 3px 3px 3px 3px rgb(170, 155, 170);
+  box-shadow: var(--bx-sh-2);
 }
 
 .project-container-img {
@@ -73,33 +88,38 @@ h1 {
 .single-design p:hover,
 .main-container p:hover,
 .my-projects p:hover {
-  background-color:rgb(109, 86, 117);
+  background-color: var(--bg-clr-1);
 }
 
-.main-container img, .single-design img, .my-projects img {
+.main-container img,
+.single-design img,
+.my-projects img {
   margin: 20px;
   text-align: center;
-  width: 150px;  
+  width: 150px;
 }
 .med-img {
   width: 150px;
 }
 
 .logo-pic {
-  margin: 10px 10px;
-  width: 200px;
+  margin: 5px 10px;
+  width: 100px;
+}
+.logo-div {
+  display: inline-block;
 }
 .topnav {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) 2fr 2fr 0.5fr;
+  grid-template-columns: repeat(3, 1fr) 2fr 2fr 0.5fr;
   justify-content: center;
   align-items: center;
   height: 80px;
   overflow: hidden;
-  background-color: rgb(109, 86, 117);
-  box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
+  background-color: var(--bg-clr-1);
+  box-shadow: var(--bx-sh);
 }
-   
+
 .topnav .login {
   text-align: right;
 }
@@ -110,14 +130,17 @@ h1 {
   margin: 0 10px;
   font-size: 1.2em;
 }
- 
-.signout-btn {
-  background-color: rgb(109, 86, 117);
+
+.signout-btn,
+.signin-btn {
+  background-color: var(--bg-clr-1);
   border: none;
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.signout-btn:hover {
+.signout-btn:hover,
+.signin-btn:hover {
   background-color: #461a46;
   color: rgb(202, 200, 202);
   font-weight: bolder;
@@ -135,30 +158,30 @@ h1 {
 }
 
 .zoom {
-  transition: transform .3s; 
+  transition: transform 0.3s;
   transition: 1s ease-in-out;
 }
-  
+
 .zoom:hover {
-  transform: scale(2.5); 
+  transform: scale(2.5);
 }
 
 .zoom2 {
   width: 300px;
   max-height: 420px;
   margin: 5% auto;
-  transition: transform .3s; 
+  transition: transform 0.3s;
   transition: 2s ease-in-out;
 }
-  
+
 .zoom2:hover {
-  transform: scale(2.5); 
+  transform: scale(2);
   text-align: center;
 }
 
 .project-container {
   width: 90%;
-  margin: 20px auto; 
+  margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -171,10 +194,11 @@ h1 {
   background-image: url('fabric-pic.png');
 }
 
-.slideshow-area , .edit-area {
-  grid-column-start: span 2; 
-} 
-  
+.slideshow-area,
+.edit-area {
+  grid-column-start: span 2;
+}
+
 .topnav a {
   color: #f2f2f2;
   text-align: center;
@@ -182,10 +206,12 @@ h1 {
   text-decoration: none;
   font-size: 2em;
 }
-  
+
 .topnav a:hover {
-  background-color: rgb(70, 26, 70);
-  color: rgb(202, 200, 202);
+  /* background-color: rgb(70, 26, 70); */
+  color: var(--cl-primary-2);
+  /* color: rgb(202, 200, 202); */
+  text-shadow: var(--tx-sh);
 }
 
 .login-icon {
@@ -193,51 +219,75 @@ h1 {
   height: 50px;
 }
 
-.login-wrapper , .signup-wrapper {
+.login-wrapper,
+.signup-wrapper {
   width: 500px;
-  height: 350px;
+  height: 400px;
 }
 
-.new-project-wrapper, .update-form-wrapper {
+.new-project-wrapper,
+.update-form-wrapper {
   width: 800px;
-  height: 550px;
+  height: auto;
 }
-.login-wrapper, .new-project-wrapper, .update-form-wrapper , .signup-wrapper {
+.login-wrapper,
+.new-project-wrapper,
+.update-form-wrapper,
+.signup-wrapper {
   position: absolute;
   top: 20%;
   left: 30%;
   border: rgb(90, 67, 90);
   border-radius: 3px;
-  box-shadow: 5px 5px 5px 5px rgb(141, 119, 141);
+  box-shadow: var(--bx-sh-3);
   text-align: center;
   font-size: 1em;
-  margin: 0 auto;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
   color: rgb(70, 26, 70);
 }
 
-.login-wrapper h1, .login-wrapper p, .signup-wrapper h1, .signup-wrapper p {
+.login-wrapper h1,
+.login-wrapper p,
+.signup-wrapper h1,
+.signup-wrapper p {
   margin: 10px auto 0 auto;
 }
-.login-form, .new-project-form, .update-form, .signup-form {
+.login-form,
+.new-project-form,
+.update-form,
+.signup-form {
   margin: 10px auto;
 }
-.login-form label, .new-project-form label, .update-form label, .signup-form label {
+.login-form label,
+.new-project-form label,
+.update-form label,
+.signup-form label {
   display: inline-block;
   width: 70px;
   text-align: right;
 }
-.new-project-form label, .update-form label  {
+.new-project-form label,
+.update-form label {
   width: 180px;
 }
 
-.login-form button, .new-project-form button, .update-form button, .signup-form button {
-  background: rgb(109, 86, 117);
-  color: #f2f2f2; 
+.login-form button,
+.new-project-form button,
+.update-form button,
+.signup-form button {
+  background: var(--bg-clr-1);
+  color: #f2f2f2;
   font-size: 1.5em;
   border-radius: 6px;
 }
 
-.login-form input, .new-project-form input, textarea, .update-form input, .signup-form input {
+.login-form input,
+.new-project-form input,
+textarea,
+.update-form input,
+.signup-form input {
   width: 60%;
   height: 30px;
   margin: 0 10px;
@@ -245,7 +295,10 @@ h1 {
   font-size: 1em;
 }
 
-.login-form div, .new-project-form div, .update-form div, .signup-form div {
+.login-form div,
+.new-project-form div,
+.update-form div,
+.signup-form div {
   margin: 20px auto;
 }
 
@@ -262,15 +315,16 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
-.edit-project  {
-  background-color: rgb(109, 86, 117);
+.edit-project {
+  background-color: var(--bg-clr-1);
   margin: 50px auto;
   text-align: center;
   text-decoration: none;
   display: inline-block;
 }
 
-.delete-btn, .edit-project {
+.delete-btn,
+.edit-project {
   color: #f2f2f2;
   font-size: 1.25em;
   border-radius: 5px;
@@ -279,11 +333,11 @@ h1 {
 
 .delete-form {
   margin: 50px auto;
-    /* float: right; */
+  /* float: right; */
 }
 
 .delete-btn {
-  background-color: rgb(221, 149, 149);
+  background-color: rgb(165, 128, 128);
   border: none;
   height: 50px;
 }
@@ -300,7 +354,7 @@ h1 {
   font-size: 1.5em;
 }
 
-.list-design a{
+.list-design a {
   text-decoration: none;
 }
 
@@ -314,41 +368,57 @@ h1 {
     padding: 10px;
 } */
 
-footer {
+/* 13.11.20
+ footer {
   position: relative;
   bottom: 0;
   width: 100%;
   margin: 20px;
+} */
+
+footer {
+  height: 6rem;
+  background-color: var(--bg-clr-1);
+  box-shadow: 3px 3px 3px 3px rgb(141, 119, 141);
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+footer h4 {
+  margin-top: 0.5rem;
+  color: white;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 main {
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
+  margin-bottom: 8rem;
 }
 h3 {
   margin: 50px;
 }
 
-
 .like-btn-div {
-    position: absolute;
-    left: 45%;
-    right: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
-    border-radius: 50px;
-    background-color: #fafafa;
-
+  position: absolute;
+  left: 45%;
+  right: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  background-color: #fafafa;
 }
 
 article {
-    color: #461a46;
-    background-image: url('fabric-pic.png');
-    margin: 10px auto;
-    padding: 20px 40px;
-    font-size: 1.5em;
-    text-align: center;
+  color: #461a46;
+  background-image: url('fabric-pic.png');
+  margin: 10px auto;
+  padding: 20px 40px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .extra-info {
@@ -375,7 +445,8 @@ article {
   padding: 0;
 }
 
-.like-form, .like-div {
+.like-form,
+.like-div {
   display: inline-block;
 }
 
@@ -384,13 +455,111 @@ article {
   padding: 0;
 }
 
-.like-form span, .like-div span {
+.like-form span,
+.like-div span {
   margin: auto 5px auto 0;
 }
 
 .main-container span {
   display: inline-block;
   justify-self: right;
-  
 }
 
+.error {
+  color: red;
+}
+/* search bar */
+.search-layout {
+  margin: 10px 50px;
+  background: var(--bg-clr-1);
+  border-radius: 5px;
+  box-shadow: var(--bx-sh);
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+}
+
+.input-container {
+  /* position: relative; */
+  border: none;
+  background: var(--bg-clr-1);
+}
+.input-field {
+  margin: 1em;
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  color: var(--cl-primary-2);
+}
+
+.input-container,
+.select,
+.search-btn-layout {
+  display: inline-block;
+}
+
+select {
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: var(--bg-clr-0);
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 350px;
+  line-height: 3;
+  background: var(--bg-clr-1);
+  overflow: hidden;
+}
+
+div.select {
+  border-radius: 5px;
+}
+select {
+  flex: 1;
+  display: inline-block;
+  margin: 1em;
+  color: var(--cl-primary-2);
+  cursor: pointer;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.icon {
+  padding-left: 10px;
+  color: white;
+  text-align: center;
+}
+
+.search-btn {
+  height: 40px;
+  width: 150px;
+  margin: 1.25em;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--bg-clr-0);
+}
+
+.search-btn:hover {
+  background-color: var(--bg-clr-2);
+}
+
+@media screen and (max-width: 800px) {
+  .topnav {
+    width: 80vw;
+    font-size: 0.5em;
+  }
+  .search-layout {
+    grid-template-columns: 0.25fr 1fr 0.25fr;
+  }
+  .search-bar {
+    grid-column-start: 2;
+  }
+}

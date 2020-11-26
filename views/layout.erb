@@ -11,7 +11,7 @@
 </head>
 <body> 
 <main>
-  <div class="topnav">
+  <div class="topnav"> <div class="logo-div"><img class="logo-pic" src="/StitchbyStitch.png"></div>
     <a href="/">Home</a>
     <a href="/designs">Designs</a>
     <% if logged_in? %>
@@ -30,18 +30,21 @@
       <button class="signout-btn">Sign out</button>
     </form>
       <% else %>
-    <a class="login" href="/login"> <img class="login-icon" src='/stylesheets/login-icon.png'></a>
+    <a  href="/login"> <button class="signin-btn">Log in</button></a>
     <% end %>
   </div>
     <% if logged_in? %>
       <a class="personal-link" href="/projects/new">Create New</a>
     <% end %>
-    <div class="logo-div"><img class="logo-pic" src="/StitchbyStitch.png"></div>
+   
     
     <%= yield %>
     </main>
     <footer>
-      <div>&copy;2020 Stitch by Stitch Team</div>
+     <h4>
+          &copy; Developed by <span>Katerina Matveeva </span><br/>
+          <%= DateTime.now.year %>
+        </h4>
     </footer> 
 <script src="/javascripts/application.js"></script>
 
